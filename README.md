@@ -9,6 +9,10 @@ npm i --save prop-types
 npm i --save axios
 https://yts-proxy.now.sh/list_movies.json
 
+npm i --save cors
+npm i --save express
+npm i --save-dev http-proxy-middleware
+
 ## Life Cycle
 componentDidMount는 render가 모두 끝난 후에 호출된다.
 
