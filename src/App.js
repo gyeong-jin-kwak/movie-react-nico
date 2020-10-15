@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 import axios from "axios";
-
+import Movie from "./Movies";
 
 class app extends React.Component {
     state = {
@@ -8,11 +8,13 @@ class app extends React.Component {
         movies: []
     }
 
-
     getMovies = async () => {
-        const movies = await axios.get("https://yts.mx/api/v2/list_movies.json");
-        console.log(movies)
+        const {data: {data: {movies}}} = await axios.get("https://yts.mx/api/v2/list_movies.json");
+        this.setState({ movies, isLoading: false })
+        // console.log(movies)
     }
+    //https://yts.mx/api/v2/list_movies.json
+    //https://yts-proxy.now.sh/list_movies.json #1 노마드 err
 
     componentDidMount() {
         this.getMovies();
@@ -25,9 +27,19 @@ class app extends React.Component {
     // }
 
     render() {
-        const { isLoading } = this.state;
+        const { isLoading, movies } = this.state;
         return (
-            <div>{ isLoading ? 'loading...' : 'we are ready' }</div>
+            <div>{isLoading ? 'loading...' : movies.map(movie => {
+                console.log(movie);
+                return <Movie
+                            key={movie.id}
+                            id={movie.id}
+                            year={movie.year}
+                            title={movie.title}
+                            summary={movie.summary}
+                            poster={movie.medium_cover_image}
+                        />
+            })}</div>
         );
     }
 }

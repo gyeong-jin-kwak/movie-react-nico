@@ -41,3 +41,14 @@ class App extends React.Component {
 export default App;
 
 ```
+
+## es5 -> es6
+```
+es5
+const movies = await axios.get("https://yts.mx/api/v2/list_movies.json");
+console.log(movies.data.data.movies)
+
+es6
+const {data: {data: {movies}}} = await axios.get("https://yts.mx/api/v2/list_movies.json");
+console.log(movies)
+```
