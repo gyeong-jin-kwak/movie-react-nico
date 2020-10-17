@@ -9,15 +9,18 @@
     "axios": "^0.20.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
+    "gh-pages": "^3.1.0",
     "prop-types": "^15.7.2",
+    "proxy": "http://localhost:3000",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.3",
-    "proxy": "http://localhost:3000"
+    "react-scripts": "3.4.3"
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build"
+    "build": "react-scripts build",
+    "deploy": "gh-pages -d build",
+    "predeploy": "npm run build"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -36,5 +39,6 @@
   },
   "devDependencies": {
     "http-proxy-middleware": "^1.0.6"
-  }
+  },
+  "homepage": "https://gyeong-jin-kwak.github.io/movie-react-nico/"
 }
