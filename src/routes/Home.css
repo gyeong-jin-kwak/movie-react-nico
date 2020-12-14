@@ -32,6 +32,13 @@ body,
     align-items: flex-start;
     flex-wrap: wrap;
     width: 90%;
+    min-width: 1245px;
     padding: 70px 50px 50px 50px;
     margin: 0 auto;
 }
+
+@media (max-width: 1090px) {
+    .movies {
+      min-width: 100%;
+    }
+  }
